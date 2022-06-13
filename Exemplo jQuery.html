@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Usando jQuery</title>
+        <meta charset="UTF-8">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <p id="para">Olá povo, boa noite, como estão? aqui quero mostrar uma coisa que acontece no texto </p>
+        <p id="teste"></p>
+        <h1>acabou</h1>
+        <h2>boa sorte</h2>
+        <ul>
+            <li>Ricardo</li>
+            <li>Leonardo</li>
+            <li>Augusto</li>
+            <li>Eric</li>
+            <li>Matheus</li>
+            <li>Dhanyel</li>
+            <li>Luiz Henrique</li>
+        </ul>
+        <button id="btn" >Clique aqui para limpar a lista</button>
+        <button id="btn2" onclick="mostra()">Clique aqui pra mostrar a lista</button>
+        <button id="btn3">Cliquei aqui para esconder o h1</button>
+        <button id="btn4">Cliquei aqui para mostrar o h1</button>
+    </body>
+    <script>
+       //JS puro
+       //document.getElementById("teste").innerHTML = "neste parágrafo";
+        //jQuery
+        $("#teste").html("é isso aí, não tem mais jeito");
+        $("h1").css({"color":"blue"});
+        $("body").css({"background":"pink"});
+        $("h2").css({"color":"red"});
+        $("#btn").on("click",esconde);
+        /*$("#btn").on("click",function () {
+            $("ul").hide(); 
+        });*/
+        $("#btn3").on("mouseenter",mudaFundo);
+        $("#btn3").on("mouseleave",mudaFundo2);
+        $("#btn4").on("click", function(){
+            $('h1').fadeIn("10000");
+        })
+        $("#btn3").on("click", function(){
+            $('h1').fadeOut("10000");
+        })
+        function mudaFundo(){
+            $("body").css({"background":"grey"});
+        }
+        function mudaFundo2(){
+            $("body").css({"background":"pink"});
+        }
+        function esconde(){
+            //$("ul").remove();
+            $("ul").hide();
+           // $("body").hide();
+        }
+        function mostra(){
+            $("ul").show();
+        }
+    </script>
+</html>
